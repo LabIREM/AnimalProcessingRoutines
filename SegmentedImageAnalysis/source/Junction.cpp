@@ -1,6 +1,6 @@
 
 #include "Junction.h"
-
+/*
 int Junction::WIDTH = 1;
 int Junction::HEIGHT = 1;
 
@@ -180,5 +180,4 @@ std::vector<unsigned long> Junction::GetDilIndicesPixelsList()
     }
     return res;
 }
-
-
+*/

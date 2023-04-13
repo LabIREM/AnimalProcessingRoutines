@@ -1,0 +1,5 @@
+Import('env')
+
+env.AppendUnique(CPPPATH = [env.sourceDir + '/SegmentedImageAnalysis/header'])
+
+env.Program('segmentedImageAnalysis', Glob('*.cpp'))

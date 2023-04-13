@@ -1,6 +1,7 @@
 
 #include "Cell.h"
 
+/*
 int Cell::WIDTH = 1;
 int Cell::HEIGHT = 1;
 
@@ -395,7 +396,7 @@ void Cell::ComputePolarityMode(itk::Image<double, 2>::Pointer image, itk::FixedA
     std::vector<double> tmpPolarityMode (5);
     if (m_Category != CATEGORY::BORDERCELL)
     {
-        int n_step = 18; // 20° arcs
+        int n_step = 18; // 20ï¿½ arcs
         double thetaBinning[18] = { 0 };           // container to store intensity sum per segment
         double nbThetaBinning[18] = { 0 };         // container to store # of pixel used per segment
         double thetaList[18];                      // container to store average theta per segment (rad)
@@ -661,3 +662,4 @@ std::vector<unsigned long> Cell::GetDilJunctionsIndicesPixelsList()//(int _w, in
     return res;
 }
 
+*/
