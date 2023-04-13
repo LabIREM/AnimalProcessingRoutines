@@ -151,6 +151,9 @@ def setLibs(env):
 
     env.AppendUnique(LIBS = libs)
 
+def setDefines(env):
+    env.AppendUnique(CPPDEFINES=['ITK_STATIC'])
+
 env = Environment()
 # env.sourceDir = 'D:/RomaBio/temp/CellTracking'
 env.sourceDir = os.getcwd()
@@ -158,7 +161,7 @@ env.sourceDir = os.getcwd()
 setCppFlags(env)
 setLibPaths(env)
 setLibs(env)
-env.AppendUnique(CPPDEFINES=['ITK_STATIC'])
+setDefines(env)
 env['CCCOMSTR'] = ''
 
 Export('env')
@@ -166,6 +169,6 @@ Export('env')
 debug = ARGUMENTS.get('debug', False)
 buildDir = 'debug' if debug else 'release'
 
-# SConscript('CellTracking/source/SConscript', variant_dir=buildDir, duplicate = 0)
-# SConscript('JunctionTracking/source/SConscript', variant_dir=buildDir, duplicate = 0)
-SConscript('SegmentedImageAnalysis/source/SConscript', variant_dir=buildDir, duplicate = 0)
+SConscript('CellTracking/source/SConscript', variant_dir=buildDir + '/ct', duplicate = 0)
+SConscript('JunctionTracking/source/SConscript', variant_dir=buildDir + '/jt', duplicate = 0)
+# SConscript('SegmentedImageAnalysis/source/SConscript', variant_dir=buildDir, duplicate = 0)
