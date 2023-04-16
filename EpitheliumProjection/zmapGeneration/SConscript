@@ -1,0 +1,6 @@
+Import('env')
+
+env.AppendUnique(CPPPATH = [env.sourceDir + '/EpitheliumProjection/external'])
+env.AppendUnique(CPPPATH = [env.sourceDir + '/EpitheliumProjection/include'])
+
+env.Program('zmapGeneration', Glob('*.cpp'))

@@ -2,8 +2,7 @@ import os
 import sys
 
 def setCppFlags(env):
-    env.AppendUnique(CPPFLAGS = ['/EHsc', '/MD'])
-    # env.AppendUnique(CPPFLAGS = ['/FS', '/Zi'])
+    env.AppendUnique(CPPFLAGS = ['/EHsc', '/MD', '/Ox'])
 
 def setLibPaths(env):
     itkPath = 'D:/RomaBio/temp/itk'
@@ -30,6 +29,17 @@ def setLibPaths(env):
     env.AppendUnique(CPPPATH = [itkPath + '/Modules/Core/ImageFunction/include'])
     env.AppendUnique(CPPPATH = [itkPath + '/Modules/Filtering/MathematicalMorphology/include'])
     env.AppendUnique(CPPPATH = [itkPath + '/Modules/Filtering/BinaryMathematicalMorphology/include'])
+    env.AppendUnique(CPPPATH = [itkPath + '/Modules/Filtering/Smoothing/include'])
+    env.AppendUnique(CPPPATH = [itkPath + '/Modules/Filtering/LabelMap/include'])
+    env.AppendUnique(CPPPATH = [itkPath + '/Modules/Filtering/ImageStatistics/include'])
+    env.AppendUnique(CPPPATH = [itkPath + '/Modules/Filtering/ImageFeature/include'])
+    env.AppendUnique(CPPPATH = [itkPath + '/Modules/Numerics/Statistics/include'])
+    env.AppendUnique(CPPPATH = [itkPath + '/Modules/Registration/Common/include'])
+
+    boostPath = 'C:/Program Files/PackageManagement/NuGet/Packages/boost.1.81.0/lib/native/include'
+    env.AppendUnique(CPPPATH = [boostPath])
+    env.AppendUnique(LIBPATH = ['C:/Program Files/PackageManagement/NuGet/Packages/boost_program_options-vc142.1.81.0/lib/native'])
+
 
 def setLibs(env):
     libs = [
@@ -172,3 +182,5 @@ buildDir = 'debug' if debug else 'release'
 SConscript('CellTracking/source/SConscript', variant_dir=buildDir + '/ct', duplicate = 0)
 SConscript('JunctionTracking/source/SConscript', variant_dir=buildDir + '/jt', duplicate = 0)
 # SConscript('SegmentedImageAnalysis/source/SConscript', variant_dir=buildDir, duplicate = 0)
+SConscript('EpitheliumProjection/zmapGeneration/SConscript', variant_dir=buildDir + '/zg', duplicate = 0)
+SConscript('EpitheliumProjection/zmapProjection/SConscript', variant_dir=buildDir + '/zp', duplicate = 0)
