@@ -1,6 +1,4 @@
-
 #include "Vertex.h"
-
 
 Vertex::Vertex()
 {}
@@ -58,7 +56,7 @@ void Vertex::SetCellList(std::vector<unsigned long> & _p)
     m_CellList = _p;
 }
 
-itk::Index<2> Vertex::GetCoordinate()
+itk::FixedArray < float, 2 > Vertex::GetCoordinate()
 {
     return m_Coordinate;
 }
@@ -68,14 +66,18 @@ unsigned long Vertex::GetLinearIndex()
     return m_LinearIndex;
 }
 
-void Vertex::SetCoordinate(itk::Index<2> & _p)
+void Vertex::SetCoordinate(itk::FixedArray < float, 2 > & _p)
 {
     m_Coordinate = _p;
+}
+
+void Vertex::SetCoordinate(float _x, float _y)
+{
+    m_Coordinate[0] = _x;
+    m_Coordinate[1] = _y;
 }
 
 void Vertex::SetLinearIndex(unsigned long & _p)
 {
     m_LinearIndex = _p;
 }
-
-

@@ -628,8 +628,7 @@ int main(int argc, char ** argv)
     
     int dilRadius = 1;
     float blurVariance = 25;
-    
-    
+        
     /** Commande line parameters **/
     std::string binaryImageName, outputPathMatfile;
     std::string channelImageName, channelName;

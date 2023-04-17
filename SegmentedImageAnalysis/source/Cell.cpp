@@ -1,32 +1,30 @@
-
 #include "Cell.h"
 
-/*
 int Cell::WIDTH = 1;
 int Cell::HEIGHT = 1;
 
 Cell::Cell()
 {
-    m_InertiaTensor = std::vector< double > (4);
-    m_TextureTensor = std::vector< double >(4);
-    m_VertexTensor = std::vector< double >(4);
+    m_InertiaTensor = std::vector< float >(4);
+    m_TextureTensor = std::vector< float >(4);
+    m_VertexTensor = std::vector< float >(4);
 }
 
 Cell::Cell(unsigned long & _l) : m_Label(_l)
 {
-    m_InertiaTensor = std::vector< double >(4);
-    m_TextureTensor = std::vector< double >(4);
-    m_VertexTensor = std::vector< double >(4);
+    m_InertiaTensor = std::vector< float >(4);
+    m_TextureTensor = std::vector< float >(4);
+    m_VertexTensor = std::vector< float >(4);
 }
 
 Cell::Cell(unsigned long & _l, Cell::CATEGORY _c) : m_Label(_l), m_Category(_c)
 {
-    m_InertiaTensor = std::vector< double >(4);
-    m_TextureTensor = std::vector< double >(4);
-    m_VertexTensor = std::vector< double >(4);
+    m_InertiaTensor = std::vector< float >(4);
+    m_TextureTensor = std::vector< float >(4);
+    m_VertexTensor = std::vector< float >(4);
 }
 
-Cell::~Cell() 
+Cell::~Cell()
 {}
 
 unsigned long Cell::GetLabel()
@@ -140,62 +138,62 @@ void Cell::AddPixel(itk::Index<2> & _v)
     }
 }
 
-double Cell::GetArea()
+float Cell::GetArea()
 {
     return m_Area;
 }
 
-double Cell::GetPerimeter()
+float Cell::GetPerimeter()
 {
     return m_Perimeter;
 }
 
-double Cell::GetElongation()
+float Cell::GetElongation()
 {
     return m_Elongation;
 }
 
-double Cell::GetEccentricity()
+float Cell::GetEccentricity()
 {
     return m_Eccentricity;
 }
 
-double Cell::GetRoundness()
+float Cell::GetRoundness()
 {
     return m_Roundness;
 }
 
-double Cell::GetAnisotropy()
+float Cell::GetAnisotropy()
 {
     return m_Anisotropy;
 }
 
-double Cell::GetOrientation()
+float Cell::GetOrientation()
 {
     return m_Orientation;
 }
 
-double Cell::GetMajorAxisLength()
+float Cell::GetMajorAxisLength()
 {
     return m_MajorAxisLength;
 }
 
-double Cell::GetMinorAxisLength()
+float Cell::GetMinorAxisLength()
 {
     return m_MinorAxisLength;
 }
 
-itk::Index<2> Cell::GetCentroid()
+itk::FixedArray<float,2> Cell::GetCentroid()
 {
     return m_Centroid;
 }
 
-double Cell::GetChordLength()
+float Cell::GetChordLength()
 {
     return m_ChordLength;
 }
 
-double Cell::GetChordDisorder()
+float Cell::GetChordDisorder()
 {
     return m_ChordDisorder;
 }
@@ -220,69 +218,69 @@ double Cell::GetVarianceIntensity()
     return m_VarianceIntensity;
 }
 
-double Cell::GetInertiaAnisotropy()
+float Cell::GetInertiaAnisotropy()
 {
     return m_InertiaAnisotropy;
 }
-double Cell::GetInertiaOrientation()
+float Cell::GetInertiaOrientation()
 {
     return m_InertiaOrientation;
 }
-double Cell::GetVertexOrientation()
+float Cell::GetVertexOrientation()
 {
     return m_VertexOrientation;
 }
-double Cell::GetVertexPolarity()
+float Cell::GetVertexPolarity()
 {
     return m_VertexPolarity;
 }
 
-void Cell::SetArea(double & _p)
+void Cell::SetArea(float & _p)
 {
     m_Area = _p;
 }
 
-void Cell::SetPerimeter(double & _p)
+void Cell::SetPerimeter(float & _p)
 {
     m_Perimeter = _p;
 }
 
-void Cell::SetElongation(double & _p)
+void Cell::SetElongation(float & _p)
 {
     m_Elongation = _p;
 }
 
-void Cell::SetEccentricity(double & _p)
+void Cell::SetEccentricity(float & _p)
 {
     m_Eccentricity = _p;
 }
 
-void Cell::SetRoundness(double & _p)
+void Cell::SetRoundness(float & _p)
 {
     m_Roundness = _p;
 }
 
-void Cell::SetAnisotropy(double & _p)
+void Cell::SetAnisotropy(float & _p)
 {
     m_Anisotropy = _p;
 }
 
-void Cell::SetOrientation(double & _p)
+void Cell::SetOrientation(float & _p)
 {
     m_Orientation = _p;
 }
 
-void Cell::SetMajorAxisLength(double & _p)
+void Cell::SetMajorAxisLength(float & _p)
 {
     m_MajorAxisLength = _p;
 }
 
-void Cell::SetMinorAxisLength(double & _p)
+void Cell::SetMinorAxisLength(float & _p)
 {
     m_MinorAxisLength = _p;
 }
 
-void Cell::SetCentroid(double & _p1, double & _p2)
+void Cell::SetCentroid(float & _p1, float & _p2)
 {
     m_Centroid[0] = _p1;
     m_Centroid[1] = _p2;
@@ -308,17 +306,17 @@ void Cell::SetVarianceIntensity(double & _p)
     m_VarianceIntensity = _p;
 }
 
-std::vector<double> Cell::GetInertiaTensor()
+std::vector<float> Cell::GetInertiaTensor()
 {
     return m_InertiaTensor;
 }
 
-std::vector<double> Cell::GetTextureTensor()
+std::vector<float> Cell::GetTextureTensor()
 {
     return m_TextureTensor;
 }
 
-std::vector<double> Cell::GetVertexTensor()
+std::vector<float> Cell::GetVertexTensor()
 {
     return m_VertexTensor;
 }
@@ -355,7 +353,7 @@ double Cell::GetBackgroundIntensity(unsigned int _p)
 
 std::vector<double>  Cell::GetPolarityMode(unsigned int _p)
 {
-        return m_PolarityModesList[_p];
+    return m_PolarityModesList[_p];
 }
 
 void Cell::ComputeIntensities(itk::Image<double, 2>::Pointer image, itk::Image<double, 2>::Pointer bg)
@@ -393,7 +391,7 @@ void Cell::ComputeIntensities(itk::Image<double, 2>::Pointer image, itk::Image<d
 
 void Cell::ComputePolarityMode(itk::Image<double, 2>::Pointer image, itk::FixedArray<unsigned int, 2> & order, bool bg)
 {
-    std::vector<double> tmpPolarityMode (5);
+    std::vector<double> tmpPolarityMode(5);
     if (m_Category != CATEGORY::BORDERCELL)
     {
         int n_step = 18; // 20� arcs
@@ -453,7 +451,7 @@ void Cell::ComputePolarityMode(itk::Image<double, 2>::Pointer image, itk::FixedA
         tmpPolarityMode[3] = NAN;
         tmpPolarityMode[4] = NAN;
     }
-        
+
     m_PolarityModesList.push_back(tmpPolarityMode);
     //std::cout << tmpPolarityMode[0] << " " << tmpPolarityMode[1] << " " << tmpPolarityMode[2] << " " << tmpPolarityMode[3] << " " << tmpPolarityMode[4] << std::endl;
 }
@@ -479,16 +477,16 @@ void Cell::ComputeCategory(std::map<unsigned long, Cell> & _cList)
     }
 }
 
-void Cell::ComputeInertia(itk::FixedArray<unsigned int, 2> & _order)
+void Cell::ComputeInertia(float _scale, itk::FixedArray<unsigned int, 2> & _order)
 {
     if (m_Category != CATEGORY::BORDERCELL)
     {
         std::vector< itk::Index<2> >::const_iterator pixelsIt;
-        double Ixx(0), Ixy(0), Iyy(0);
+        float Ixx(0), Ixy(0), Iyy(0);
         for (pixelsIt = m_PixelsList.begin(); pixelsIt != m_PixelsList.end(); ++pixelsIt)
         {
-            double x = (*pixelsIt)[_order[0]] - m_Centroid[_order[0]];
-            double y = (*pixelsIt)[_order[1]] - m_Centroid[_order[1]];
+            float x = (*pixelsIt)[_order[0]] - m_Centroid[_order[0]];
+            float y = (*pixelsIt)[_order[1]] - m_Centroid[_order[1]];
             Ixx += x * x;
             Iyy += y * y;
             Ixy += x * y;
@@ -498,15 +496,20 @@ void Cell::ComputeInertia(itk::FixedArray<unsigned int, 2> & _order)
         m_InertiaTensor[2] = Ixy / m_PixelsList.size();
         m_InertiaTensor[3] = Iyy / m_PixelsList.size();
 
-        itk::FixedArray< double, 2 > eigenvalues;
-        itk::Matrix< double, 2, 2 > eigenvectors;
+        itk::FixedArray< float, 2 > eigenvalues;
+        itk::Matrix< float, 2, 2 > eigenvectors;
         TensorData(m_InertiaTensor, eigenvalues, eigenvectors);
 
         m_InertiaAnisotropy = 1 - std::sqrt(eigenvalues[0] / eigenvalues[1]);  // small / big
-        double angle = std::atan2(eigenvectors[1][1], eigenvectors[1][0]) * 180 / M_PI;
+        float angle = std::atan2(eigenvectors[1][1], eigenvectors[1][0]) * 180 / M_PI;
         if (angle > 90)  angle -= 180;
         if (angle < -90) angle += 180;
         m_InertiaOrientation = angle;
+
+        m_InertiaTensor[0] *= std::pow(_scale, 2);
+        m_InertiaTensor[1] *= std::pow(_scale, 2);
+        m_InertiaTensor[2] *= std::pow(_scale, 2);
+        m_InertiaTensor[3] *= std::pow(_scale, 2);
     }
     else
     {
@@ -517,32 +520,32 @@ void Cell::ComputeInertia(itk::FixedArray<unsigned int, 2> & _order)
     }
 }
 
-void Cell::ComputeTexture(std::map<unsigned long, Cell> & _cList, std::map<unsigned long, Junction> & _jList, itk::FixedArray<unsigned int, 2> & _order)
+void Cell::ComputeTexture(std::map<unsigned long, Cell> & _cList, std::map<unsigned long, Junction> & _jList, float _scale, itk::FixedArray<unsigned int, 2> & _order)
 {
     if (m_Category != CATEGORY::BORDERCELL)
     {
-        double Mxx(0), Mxy(0), Myy(0);
+        float Mxx(0), Mxy(0), Myy(0);
         std::vector<unsigned long>::const_iterator neighborsIt;
         for (neighborsIt = m_NeighborsList.begin(); neighborsIt != m_NeighborsList.end(); ++neighborsIt)
         {
-            double w = 1;
+            float w = 1;
             unsigned long tmpJunctionLabel = CantorPairing(m_Label, *neighborsIt);
-            double junctionFlag = _jList.find(tmpJunctionLabel)->second.GetChordLength();
+            float junctionFlag = _jList.find(tmpJunctionLabel)->second.GetChordLength();
             if (junctionFlag == 0)
             {
                 w = 0.5;
             }
-            itk::Index<2> o = _cList.find(*neighborsIt)->second.GetCentroid();
-            double x = o[_order[0]] - m_Centroid[_order[0]];
-            double y = o[_order[1]] - m_Centroid[_order[1]];
+            itk::FixedArray<float, 2> o = _cList.find(*neighborsIt)->second.GetCentroid();
+            float x = o[_order[0]] - m_Centroid[_order[0]];
+            float y = o[_order[1]] - m_Centroid[_order[1]];
             Mxx += w * x * x;
             Myy += w * y * y;
             Mxy += w * x * y;
         }
-        m_TextureTensor[0] = Mxx / 2; // divide by two instead of divide per #neighbors
-        m_TextureTensor[1] = Mxy / 2; // see eq. A3 of "Tools" (Graner et al.)
-        m_TextureTensor[2] = Mxy / 2;
-        m_TextureTensor[3] = Myy / 2;
+        m_TextureTensor[0] = Mxx / 2 * std::pow(_scale, 2); // divide by two instead of divide per #neighbors
+        m_TextureTensor[1] = Mxy / 2 * std::pow(_scale, 2); // see eq. A3 of "Tools" (Graner et al.)
+        m_TextureTensor[2] = Mxy / 2 * std::pow(_scale, 2);
+        m_TextureTensor[3] = Myy / 2 * std::pow(_scale, 2);
     }
     else
     {
@@ -557,14 +560,14 @@ void Cell::ComputeVertices(std::map<unsigned long, Vertex> & _vList, itk::FixedA
 {
     if (m_Category != CATEGORY::BORDERCELL)
     {
-        double Vxx(0), Vxy(0), Vyy(0);
+        float Vxx(0), Vxy(0), Vyy(0);
         std::vector<unsigned long>::const_iterator vertexIt;
         for (vertexIt = m_VerticesList.begin(); vertexIt != m_VerticesList.end(); ++vertexIt)
         {
-            itk::Index<2> v = _vList.find(*vertexIt)->second.GetCoordinate();
-            double x = v[_order[0]] - m_Centroid[_order[0]];
-            double y = v[_order[1]] - m_Centroid[_order[1]];
-            double norm = std::sqrt(std::pow(x, 2) + std::pow(y, 2));
+            itk::FixedArray < float, 2 > v = _vList.find(*vertexIt)->second.GetCoordinate();
+            float x = v[_order[0]] - m_Centroid[_order[0]];
+            float y = v[_order[1]] - m_Centroid[_order[1]];
+            float norm = std::sqrt(std::pow(x, 2) + std::pow(y, 2));
             Vxx += (x * x) / (norm * norm);
             Vyy += (y * y) / (norm * norm);
             Vxy += (x * y) / (norm * norm);
@@ -574,12 +577,12 @@ void Cell::ComputeVertices(std::map<unsigned long, Vertex> & _vList, itk::FixedA
         m_VertexTensor[2] = Vxy;
         m_VertexTensor[3] = Vyy;
 
-        itk::FixedArray< double, 2 > eigenvalues;
-        itk::Matrix< double, 2, 2 > eigenvectors;
+        itk::FixedArray< float, 2 > eigenvalues;
+        itk::Matrix< float, 2, 2 > eigenvectors;
         TensorData(m_VertexTensor, eigenvalues, eigenvectors);
 
         m_VertexPolarity = 1 - (eigenvalues[0] / eigenvalues[1]);  // small / big
-        double angle = std::atan2(eigenvectors[1][1], eigenvectors[1][0]) * 180 / M_PI;
+        float angle = std::atan2(eigenvectors[1][1], eigenvectors[1][0]) * 180 / M_PI;
         if (angle > 90)  angle -= 180;
         if (angle < -90) angle += 180;
         m_VertexOrientation = angle;
@@ -595,19 +598,19 @@ void Cell::ComputeVertices(std::map<unsigned long, Vertex> & _vList, itk::FixedA
 
 void Cell::ComputeChords(std::map<unsigned long, Junction> & _jList)
 {
-    double sumChord = 0;
-    std::vector<double> chord(m_JunctionsList.size());
+    float sumChord = 0;
+    std::vector<float> chord(m_JunctionsList.size());
     std::vector<unsigned long>::const_iterator junctionsIt;
     for (junctionsIt = m_JunctionsList.begin(); junctionsIt != m_JunctionsList.end(); ++junctionsIt)
     {
         int i = junctionsIt - m_JunctionsList.begin();
-        double currentChord = _jList.find(*junctionsIt)->second.GetChordLength();
+        float currentChord = _jList.find(*junctionsIt)->second.GetChordLength();
         chord[i] = currentChord;
         sumChord += currentChord;
     }
-    double meanChord = sumChord / chord.size();
-    double sq_sum = std::inner_product(chord.begin(), chord.end(), chord.begin(), 0.0);
-    double stdev = std::sqrt(sq_sum / chord.size() - meanChord * meanChord) / meanChord;
+    float meanChord = sumChord / chord.size();
+    float sq_sum = std::inner_product(chord.begin(), chord.end(), chord.begin(), 0.0);
+    float stdev = std::sqrt(sq_sum / chord.size() - meanChord * meanChord) / meanChord;
 
     m_ChordLength = sumChord;
     m_ChordDisorder = stdev;
@@ -635,7 +638,7 @@ std::vector<unsigned long> Cell::GetIndicesPixelsList()//(int _w, int _h)
     std::vector< itk::Index<2> >::const_iterator it;
     for (it = m_PixelsList.begin(); it != m_PixelsList.end(); ++it)
     {
-        res.push_back(sub2ind(WIDTH, HEIGHT, *it) );
+        res.push_back(sub2ind(WIDTH, HEIGHT, *it));
     }
     return res;
 }
@@ -661,5 +664,3 @@ std::vector<unsigned long> Cell::GetDilJunctionsIndicesPixelsList()//(int _w, in
     }
     return res;
 }
-
-*/
