@@ -2,9 +2,7 @@
 
 ## Overview
 
-* Build the itk library, use STATIC library build, not dynamic
-* In SConstruct file, give the path of itk library by setting the variable "itkPath"
-* Call scons, it will compile the modules
+To simplify the compilation of c++ routines used in the Matlab Animal Processing Tools we propose the python based approach using SCons project. Here we describe step by step the compilation processes. Note what we use ITK **static** library build, not dynamic.
 
 ## Requirements
 
@@ -54,7 +52,7 @@ we will use STATIC library build
   * if ***build*** derectory does not exist, CMake will propose to create it
   * Now select **Configure**
     * specify the generator for the this project, when CMake ask you : Visual Studio 2019 or Visual Studio 2022
-    * Verify the options:
+    * verify the options:
       * [ ] BUILD_EXAMPLES uncheck
       * [x] BUILD_STATIC_LIBS option should be check
       * [ ] BUILD_TESTING uncheck
@@ -83,10 +81,10 @@ now we can compile the project, from command line in Windows PowerShell or Termi
 cls; scons
 ````
 
-wait until Socns compile the project. The executable binaries will be stored in **relese** directory following the tree :
+wait until Scons compile the project. The executable binaries will be stored in **release** directory following the tree :
 
 ```bash
-└── relese
+└── release
     ├── ct
     |    └── cellTracking.exe
     ├── jt
